@@ -20,15 +20,21 @@
         .container {
             text-align: center;
             z-index: 10;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         h1 {
             color: #8B4513;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: bold;
         }
         p {
             color: #555;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            line-height: 1.6;
         }
         .poop {
             position: absolute;
@@ -46,27 +52,29 @@
 <body>
 
     <div class="container">
-        <h1>💩 欢迎来到首业 💩</h1>
-        <p>正如域名所说，首业正在努力中...</p>
-        <p style="font-size: 0.9rem; color: #999;">（温馨提示：请勿在吃饭时浏览）</p>
+        <h1>💩 首业在拉屎 💩</h1>
+        <p>诚如域名所言，首业由于特殊原因...</p>
+        <p><strong>正在努力排毒清理中！</strong></p>
+        <p style="font-size: 0.9rem; color: #999; margin-top: 20px;">（温馨提示：请首业冲水完毕后再试）</p>
     </div>
 
     <script>
-        // 自动生成满屏掉落的💩
+        // 自动生成满屏掉落的 💩
         function createPoop() {
             const poop = document.createElement('div');
             poop.innerText = '💩';
             poop.classList.add('poop');
             poop.style.left = Math.random() * 100 + 'vw';
-            poop.style.animationDuration = Math.random() * 3 + 2 + 's'; // 2-5秒掉落
-            poop.style.fontSize = Math.random() * 30 + 20 + 'px';
+            poop.style.animationDuration = Math.random() * 3 + 2 + 's'; // 2-5秒随机掉落速度
+            poop.style.fontSize = Math.random() * 35 + 20 + 'px';
             document.body.appendChild(poop);
 
-            // 掉落后移除
+            // 掉落到屏幕外后自动移除，防止卡顿
             setTimeout(() => {
                 poop.remove();
             }, 5000);
         }
+        // 每隔300毫秒拉一个
         setInterval(createPoop, 300);
     </script>
 </body>
