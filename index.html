@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.shouyezailashi.com</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4edd8;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            z-index: 10;
+        }
+        h1 {
+            color: #8B4513;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            font-size: 1.2rem;
+        }
+        .poop {
+            position: absolute;
+            font-size: 40px;
+            animation: fall linear infinite;
+            cursor: pointer;
+            user-select: none;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
 
+    <div class="container">
+        <h1>💩 欢迎来到首页 💩</h1>
+        <p>正如域名所说，首页正在努力中...</p>
+        <p style="font-size: 0.9rem; color: #999;">（温馨提示：请勿在吃饭时浏览）</p>
+    </div>
+
+    <script>
+        // 自动生成满屏掉落的💩
+        function createPoop() {
+            const poop = document.createElement('div');
+            poop.innerText = '💩';
+            poop.classList.add('poop');
+            poop.style.left = Math.random() * 100 + 'vw';
+            poop.style.animationDuration = Math.random() * 3 + 2 + 's'; // 2-5秒掉落
+            poop.style.fontSize = Math.random() * 30 + 20 + 'px';
+            document.body.appendChild(poop);
+
+            // 掉落后移除
+            setTimeout(() => {
+                poop.remove();
+            }, 5000);
+        }
+        setInterval(createPoop, 300);
+    </script>
+</body>
+</html>
